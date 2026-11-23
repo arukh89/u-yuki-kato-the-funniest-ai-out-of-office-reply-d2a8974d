@@ -27,6 +27,7 @@ REPLY = (
 def main():
     assert 1 <= len(REPLY) <= 160, "reply must be 1-160 characters"
     assert REPLY.strip(), "reply must not be only whitespace"
+    assert REPLY == REPLY.strip(), "reply must have no leading/trailing whitespace"
     assert "\n" not in REPLY, "reply must be one line"
     os.makedirs("/output", exist_ok=True)
     with open("/output/entry.txt", "w", encoding="utf-8") as f:
